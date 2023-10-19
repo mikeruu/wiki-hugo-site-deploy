@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: 500m
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  labels:
+    app.kubernetes.io/instance: notes
+    app.kubernetes.io/name: notes
+    argocd.argoproj.io/instance: notes-app
+  name: notes
+  namespace: notes
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: notes.cicloinfinito.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: notes
+            port:
+              number: 80
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - notes.cicloinfinito.com
+    secretName: notes-acme-tls

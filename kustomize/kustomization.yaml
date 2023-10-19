@@ -1,0 +1,11 @@
+
+namespace: notes
+
+resources:
+- namespace.yaml
+- deployment.yaml
+- service.yaml
+- ingress.yaml
+
+images:
+- name: bodega.cicloinfinito.com:6088/mikeruu/wiki
