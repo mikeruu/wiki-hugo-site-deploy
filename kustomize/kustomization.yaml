@@ -9,6 +9,6 @@ resources:
 
 images:
 - name: bodega.cicloinfinito.com:6088/mikeruu/wiki
-  newTag: 2f41a2828d3c078bef3764d5263d221cf67ebfb8
+  newTag: f0346b0346f274a53420285be04126b4bbf0d41f
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
